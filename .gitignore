@@ -174,3 +174,9 @@ pnnx*
 
 # calibration image
 calibration_*.npy
+
+# Ignore the following files
+*.rar
+*.zip
+*.tar.gz
+Fruits22/

@@ -3,14 +3,14 @@ import numpy as np
 
 def main():
     # 加载训练好的模型
-    model = YOLO('runs/detect/model_based_m/weights/best.pt')
+    model = YOLO('runs/detect/modelv1.0/weights/best.pt')
 
     # 在测试集上评估模型
     results = model.val(
-    data='E:/Dataset/Fruits 2.v1-three.yolov11/data.yaml',
+    data='Fruits22/data.yaml',
     split='test',
     imgsz=640,
-    batch=16,
+    batch=32,
     conf=0.25,
     iou=0.6,
     device=0

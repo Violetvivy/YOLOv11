@@ -2,17 +2,18 @@ from ultralytics import YOLO
 
 if __name__ == '__main__':
     # Load a model
-    model = YOLO("yolo11m.yaml")   # load a pretrained model
-    # model = YOLO('runs/detect/type13/weights/best.pt')
+    # model = YOLO("yolo11m.yaml")   # load a pretrained model
+    model = YOLO('runs/detect/modelv1.0/weights/last.pt')
 
     # Train the model
+    '''
     results = model.train(
-        data="E:/Dataset/Fruits15/data.yaml",
-        name='E:/VSCode/Yolov11/runs/detect/modelv1.0',
+        data="Fruits22/data.yaml",
+        name='modelv1.0',
         epochs=100,
         patience=20,
         imgsz=640,
-        batch=16,
+        batch=32,
         lr0=0.001,
 
         # ===== 学习率调度参数 =====
@@ -35,13 +36,13 @@ if __name__ == '__main__':
         
         # 高级增强技术（小数据集调大，防过拟合）
         mosaic=1.0,    # 启用mosaic数据增强
-        mixup=0.2,     # 轻微mixup增强，提高泛化能力
+        mixup=0.1,     # 轻微mixup增强，提高泛化能力
         copy_paste=0.1, # 轻微复制粘贴增强
         
         # 其他参数（形状比较固定可减小值）
         shear=1.5,     # 轻微剪切变换
         perspective=0.0005, # 透视变换
-        erasing=0.4,   # 随机擦除，模拟遮挡
+        erasing=0.3,   # 随机擦除，模拟遮挡
         
         # 训练优化
         # amp=True,      # 自动混合精度训练
@@ -49,4 +50,5 @@ if __name__ == '__main__':
         weight_decay=0.0005, # 权重衰减防止过拟合
         dropout=0.1,   # 添加dropout正则化
     )
-    # model.train(resume=True)
+    '''
+    model.train(resume=True)
