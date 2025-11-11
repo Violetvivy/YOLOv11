@@ -5,7 +5,7 @@ import gc
 
 model = YOLO('runs/detect/model_based_m/weights/best.pt')
 
-test_images = glob.glob('E:/Dataset/Fruits 2.v1-three.yolov11/test/images/*.jpg')
+test_images = glob.glob('E:/Dataset/Fruits22/test/images/*.jpg')
 
 results = model.predict(
     source=test_images,
