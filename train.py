@@ -2,18 +2,17 @@ from ultralytics import YOLO
 
 if __name__ == '__main__':
     # Load a model
-    # model = YOLO("yolo11n.yaml")  # build a new model from YAML
-    model = YOLO('runs/detect/type13/weights/best.pt')  # load a pretrained model (recommended for training)
-    # model = YOLO("yolo11n.yaml").load("yolo11n.pt")  # build from YAML and transfer weights
+    model = YOLO("yolo11m.yaml")   # load a pretrained model
+    # model = YOLO('runs/detect/type13/weights/best.pt')
 
     # Train the model
     results = model.train(
-        data="E:/Dataset/pineapple/data.yaml",
-        name='type14',
+        data="E:/Dataset/Fruits15/data.yaml",
+        name='E:/VSCode/Yolov11/runs/detect/modelv1.0',
         epochs=100,
         patience=20,
         imgsz=640,
-        batch=8,
+        batch=16,
         lr0=0.001,
 
         # ===== 学习率调度参数 =====
@@ -50,4 +49,4 @@ if __name__ == '__main__':
         weight_decay=0.0005, # 权重衰减防止过拟合
         dropout=0.1,   # 添加dropout正则化
     )
-    # model.train(resume=True,patience=20)
+    # model.train(resume=True)
