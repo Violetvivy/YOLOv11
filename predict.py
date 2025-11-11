@@ -3,7 +3,7 @@ import glob
 import torch
 import gc
 
-model = YOLO('runs/detect/model_based_m/weights/best.pt')
+model = YOLO('runs/detect/modelv1.0/weights/best.pt')
 
 test_images = glob.glob('E:/Dataset/Fruits22/test/images/*.jpg')
 
